@@ -1,1 +1,3 @@
-# codehub-node-typescript
+# Node with Typescript Example
+
+Example for the CodeHub presentation.
