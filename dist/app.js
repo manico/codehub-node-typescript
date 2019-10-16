@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const app = express_1.default();
 const port = 3000;
 app.get('/', (req, res) => {
-    res.send('Test output');
+    res.send('Hello CodeHub. :)');
 });
 app.listen(port, err => {
     if (err) {

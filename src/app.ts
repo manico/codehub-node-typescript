@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Test output');
+  res.send('Hello CodeHub. :)');
 });
 
 app.listen(port, err => {
