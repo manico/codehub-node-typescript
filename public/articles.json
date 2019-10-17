@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Hello CodeHub",
+    "description": "Awesome description about CodeHub",
+    "tags": [
+      "codehub",
+      "node"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Hello CodeHub People",
+    "description": "Awesome description about CodeHub People",
+    "tags": [
+      "codehub",
+      "node"
+    ]
+  }
+]

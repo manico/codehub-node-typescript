@@ -8,23 +8,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const News_1 = require("./News");
-const app = express_1.default();
-const port = 3000;
-app.use(express_1.default.static('public'));
-app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const article = yield News_1.newsService.getArticle(1);
-    res.json(article);
-}));
-app.listen(port, err => {
-    if (err) {
-        return console.error(err);
+const Http_1 = require("../Http");
+class News {
+    constructor(clientOptions) {
+        this.client = new Http_1.HttpClient(clientOptions);
     }
-    return console.log(`Server is running on ${port}`);
-});
-//# sourceMappingURL=app.js.map
+    getArticle(index) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const articles = yield this.client.get('/articles.json');
+                const article = articles.data[index];
+                return new Http_1.HttpResponse(article);
+            }
+            catch (error) {
+                return new Http_1.HttpException(error.response.status, error.response.message, []);
+            }
+        });
+    }
+}
+exports.News = News;
+//# sourceMappingURL=News.js.map

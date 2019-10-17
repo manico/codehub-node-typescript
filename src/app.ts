@@ -1,10 +1,14 @@
 import express from 'express';
+import { newsService } from './News';
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello CodeHub. :)');
+app.use(express.static('public'));
+
+app.get('/', async (req, res) => {
+  const article = await newsService.getArticle(1);
+  res.json(article);
 });
 
 app.listen(port, err => {
